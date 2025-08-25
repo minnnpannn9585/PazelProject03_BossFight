@@ -55,7 +55,7 @@ public class EnemyState3 : MonoBehaviour
         TrackingMissile trackingMissile = missile.GetComponent<TrackingMissile>();
         if (trackingMissile != null)
         {
-            trackingMissile.target = player;
+            //trackingMissile.target = player;
             trackingMissile.speed = missileSpeed;
         }
         else

@@ -17,6 +17,11 @@ public class TrackingMissile: MonoBehaviour
         
         // 设置导弹自动销毁时间
         Destroy(gameObject, lifeTime);
+
+        target = GameObject.FindGameObjectWithTag("Player")?.transform.GetChild(1);
+
+        rb.velocity = GetRandomUnitVectorOnXZPlane() * speed;
+        rb.transform.forward = rb.velocity.normalized;
     }
 
     void FixedUpdate()
@@ -51,5 +56,18 @@ public class TrackingMissile: MonoBehaviour
             // 销毁导弹
             Destroy(gameObject);
         }
+    }
+
+    Vector3 GetRandomUnitVectorOnXZPlane()
+    {
+        // 生成一个随机角度（弧度制）
+        float randomAngle = Random.Range(0f, Mathf.PI * 2);
+
+        // 计算单位向量
+        float x = Mathf.Cos(randomAngle);
+        float z = Mathf.Sin(randomAngle);
+
+        // 返回 XZ 平面上的单位向量
+        return new Vector3(x, 0f, z);
     }
 }

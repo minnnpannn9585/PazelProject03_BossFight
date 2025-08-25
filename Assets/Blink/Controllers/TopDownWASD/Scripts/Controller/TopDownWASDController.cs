@@ -183,8 +183,8 @@ namespace BLINK.Controller
             {
                 _dampedCameraPosition = transform.position - _forward * _currentCameraHeight;
             }
-
-            playerCamera.transform.position = _dampedCameraPosition + new Vector3(_dampedOffsetVector.x, 0, _dampedOffsetVector.y);
+            playerCamera.transform.position = _dampedCameraPosition;
+            //playerCamera.transform.position = _dampedCameraPosition + new Vector3(_dampedOffsetVector.x, 0, _dampedOffsetVector.y);
         }
 
         private void CameraInputs()
@@ -305,8 +305,14 @@ namespace BLINK.Controller
                     _anim.SetLayerWeight(2, 1);
                 }
 
-                _lookAngle =
-                    Mathf.Atan2(transform.position.z - point.z, point.x - transform.position.x) * Mathf.Rad2Deg + 90;
+                if(GetComponent<CharacterController>().velocity.magnitude != 0)
+                {
+                    _lookAngle = -Mathf.Atan2(GetComponent<CharacterController>().velocity.z,
+                        GetComponent<CharacterController>().velocity.x) * Mathf.Rad2Deg + 90;
+                }
+                
+                //_lookAngle =
+                //    Mathf.Atan2(transform.position.z - point.z, point.x - transform.position.x) * Mathf.Rad2Deg + 90;
 
                 if (input != Vector2.zero)
                 {
@@ -355,8 +361,13 @@ namespace BLINK.Controller
                 _targetPosition = null;
 
                 Vector3 point = GetPoint();
-                _lookAngle = Mathf.Atan2(transform.position.z - point.z, point.x - transform.position.x) *
-                    Mathf.Rad2Deg + 90;
+                //_lookAngle = Mathf.Atan2(transform.position.z - point.z, point.x - transform.position.x) *
+                //    Mathf.Rad2Deg + 90;
+                if (GetComponent<CharacterController>().velocity.magnitude != 0)
+                {
+                    _lookAngle = -Mathf.Atan2(GetComponent<CharacterController>().velocity.z,
+                        GetComponent<CharacterController>().velocity.x) * Mathf.Rad2Deg + 90;
+                }
 
                 _isJumping = true;
                 if (GetGroundDistance() > 0.2f) _anim.SetBool(FallingHash, true);

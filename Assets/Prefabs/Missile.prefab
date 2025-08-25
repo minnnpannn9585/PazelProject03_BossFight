@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 5
-  rotationSpeed: 10
+  rotationSpeed: 3
   lifeTime: 5
 --- !u!54 &504910608164444755
 Rigidbody:
