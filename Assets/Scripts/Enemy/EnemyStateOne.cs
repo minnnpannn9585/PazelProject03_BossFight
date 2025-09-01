@@ -5,12 +5,28 @@ using UnityEngine;
 public class EnemyStateOne : MonoBehaviour
 {
     public GameObject laser;
+    public Transform shootPoint;
+    public EnemySkill04 skill04;
+
+    bool isSkill01 = true;
+    float cd = 3f;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        cd -= Time.deltaTime;
+        if (cd <= 0f)
         {
-            ShootFourDir();
+            if (isSkill01)
+            {
+                ShootFourDir();
+                isSkill01 = false;
+            }
+            else
+            {
+                skill04.Skill04();
+                isSkill01 = true;
+            }
+            cd = 3f;
         }
     }
 
@@ -37,7 +53,7 @@ public class EnemyStateOne : MonoBehaviour
                     break;
             }
 
-            GameObject laserObj = Instantiate(laser, transform.position, Quaternion.identity);
+            GameObject laserObj = Instantiate(laser, shootPoint.position, Quaternion.identity);
             laserObj.GetComponent<Laser>().ShootLaser(direction);
             
         }

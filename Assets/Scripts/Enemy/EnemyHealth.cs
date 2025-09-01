@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public Image hp;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        hp.fillAmount = (float)currentHealth / maxHealth;
         if (currentHealth <= 70 && currentHealth > 40)
         {
             transform.GetChild(0).gameObject.SetActive(false);

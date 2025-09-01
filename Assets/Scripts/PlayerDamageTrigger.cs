@@ -5,12 +5,22 @@ using UnityEngine;
 
 public class PlayerDamageTrigger : MonoBehaviour
 {
+    [HideInInspector]
+    public PlayerHealth ph;
+
+    public GameObject bulletHitVFX;
+
+    private void Start()
+    {
+        ph = transform.parent.GetComponent<PlayerHealth>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Laser")
         {
-            // calculate
-            print("get hurt");
+            Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
+            ph.TakeDamage(10);
         }
     }
 }

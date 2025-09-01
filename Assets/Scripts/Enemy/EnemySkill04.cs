@@ -19,9 +19,15 @@ public class EnemySkill04 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            GameObject laserObj = Instantiate(laser, shootPoint.position, Quaternion.identity);
-            Vector3 dir = (player.position - shootPoint.position).normalized;
-            laserObj.GetComponent<Laser>().ShootLaser(dir);
+            Skill04();
+            
         }
+    }
+
+    public void Skill04()
+    {
+        GameObject laserObj = Instantiate(laser, shootPoint.position, Quaternion.identity);
+        Vector3 dir = (player.position - shootPoint.position).normalized;
+        laserObj.GetComponent<Laser>().ShootLaser(dir);
     }
 }
