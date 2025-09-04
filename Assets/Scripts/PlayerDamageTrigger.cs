@@ -22,5 +22,17 @@ public class PlayerDamageTrigger : MonoBehaviour
             Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
             ph.TakeDamage(10);
         }
+        if (other.tag == "Missile")
+        {
+            Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
+            ph.TakeDamage(10);
+        }
+        
+        if (other.tag == "beamPlaceholder")
+        {
+            Instantiate(bulletHitVFX, transform.position, Quaternion.identity);
+            ph.TakeDamage(10);
+            Debug.Log(1111);
+        }
     }
 }

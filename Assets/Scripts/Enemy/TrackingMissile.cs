@@ -51,10 +51,10 @@ public class TrackingMissile: MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // 这里可以添加击中玩家的逻辑
-            Debug.Log("导弹击中玩家!");
+            //Debug.Log("导弹击中玩家!");
             
             // 销毁导弹
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
     }
 
