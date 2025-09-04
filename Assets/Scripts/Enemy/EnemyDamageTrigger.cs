@@ -22,5 +22,20 @@ public class EnemyDamageTrigger : MonoBehaviour
             Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
             eh.TakeDamage(10);
         }
+        
+        if (other.tag == "Missile")
+        {
+            Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
+            eh.TakeDamage(10);
+        }
+        
+        if (other.tag == "beamPlaceholder")
+        {
+            Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
+            eh.TakeDamage(10);
+            Debug.Log(1111);
+        }
+        
+        
     }
 }
