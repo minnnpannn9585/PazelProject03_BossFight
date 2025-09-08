@@ -2058,7 +2058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1729033545
 Transform:
   m_ObjectHideFlags: 0
@@ -2092,7 +2092,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1099800849}
   missileSpeed: 8
-  skill04: {fileID: 0}
+  skill04: {fileID: 660878472}
 --- !u!1 &1770488114
 GameObject:
   m_ObjectHideFlags: 0
@@ -11062,7 +11062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6094554258280667136
 GameObject:
   m_ObjectHideFlags: 0
@@ -12115,6 +12115,7 @@ MonoBehaviour:
   beamCount: 15
   radius: 8
   damage: 50
+  skill04: {fileID: 660878472}
   warningIndicatorPrefab: {fileID: 9080451453828103393, guid: fc8cc0b1379bbc540930735bd161fb76,
     type: 3}
 --- !u!23 &6917771735022125801

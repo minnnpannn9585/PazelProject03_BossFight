@@ -8,6 +8,10 @@ public class BeamRainSkill : MonoBehaviour
     public float radius = 10f;
     public int damage = 50;
     
+    public EnemySkill04 skill04;
+
+    bool isSkill03 = true;
+    float cd = 3f;
 
     public GameObject warningIndicatorPrefab;
     
@@ -30,10 +34,26 @@ public class BeamRainSkill : MonoBehaviour
     private void Update()
     {
         // 检测玩家输入来触发技能
-        if (Input.GetKeyDown(KeyCode.R)) // 假设按下R键触发光束雨技能
+        // if (Input.GetKeyDown(KeyCode.R)) // 假设按下R键触发光束雨技能
+        // {
+        //     ActivateBeamRain();
+        //     print(1);
+        // }
+        
+        cd -= Time.deltaTime;
+        if (cd <= 0f)
         {
-            ActivateBeamRain();
-            print(1);
+            if (isSkill03)
+            {
+                ActivateBeamRain();
+                isSkill03 = false;
+            }
+            else
+            {
+                skill04.Skill04();
+                isSkill03 = true;
+            }
+            cd = 3f;
         }
     }
 
