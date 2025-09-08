@@ -7,9 +7,16 @@ public class EnemyState3 : MonoBehaviour
     public GameObject missilePrefab; // 导弹预制体
     public Transform firePoint; // 发射点
     public float missileSpeed = 8f; // 导弹速度
-    public KeyCode fireKey = KeyCode.T; // 发射按键
+    // public KeyCode fireKey = KeyCode.T; // 发射按键
 
     private Transform player; // 玩家引用
+    
+    public EnemySkill04 skill04;
+
+    bool isSkill03 = true;
+    float cd = 3f;
+
+  
 
     void Start()
     {
@@ -28,9 +35,26 @@ public class EnemyState3 : MonoBehaviour
     void Update()
     {
         // 检查是否按下发射键
-        if (Input.GetKeyDown(fireKey))
+        // if (Input.GetKeyDown(fireKey))
+        // {
+        //     FireMissile();
+        // }
+        
+        
+        cd -= Time.deltaTime;
+        if (cd <= 0f)
         {
-            FireMissile();
+            if (isSkill03)
+            {
+                FireMissile();
+                isSkill03 = false;
+            }
+            else
+            {
+                skill04.Skill04();
+                isSkill03 = true;
+            }
+            cd = 3f;
         }
     }
 
