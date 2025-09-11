@@ -7,6 +7,8 @@ public class EnemyStateOne : MonoBehaviour
     public GameObject laser;
     public Transform shootPoint;
     public EnemySkill04 skill04;
+    public Transform[] laserPoints;
+    public EnemySkill01Rotation rota;
 
     bool isSkill01 = true;
     float cd = 3f;
@@ -35,28 +37,26 @@ public class EnemyStateOne : MonoBehaviour
         // Shoot laser in four directions: up, down, left, right
         for (int i = 0; i < 4; i++)
         {
-            Vector3 direction = Vector3.zero;
 
-            switch (i)
-            {
-                case 0: // Up
-                    direction = Vector3.forward;
-                    break;
-                case 1: // Down
-                    direction = Vector3.back;
-                    break;
-                case 2: // Left
-                    direction = Vector3.left;
-                    break;
-                case 3: // Right
-                    direction = Vector3.right;
-                    break;
-            }
+            GameObject laserObj = Instantiate(laser, laserPoints[i]);
+            //laserObj.GetComponent<Laser>().ShootLaser(direction);
+            StartCoroutine(PauseOneSec());
 
-            GameObject laserObj = Instantiate(laser, shootPoint.position, Quaternion.identity);
-            laserObj.GetComponent<Laser>().ShootLaser(direction);
-            
+            Destroy(laserObj, 4f);
         }
+        
+    }
+
+    IEnumerator PauseOneSec()
+    {
+        rota.isRotate = false;
+        yield return new WaitForSeconds(1f);
+
+        rota.isRotate = true;
+        yield return new WaitForSeconds(2f);
+
+        rota.isRotate = false;
+        yield return new WaitForSeconds(1f);
         
     }
 
