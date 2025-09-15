@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &23905874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,7 +2239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1729033545
 Transform:
   m_ObjectHideFlags: 0
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e526cdc02e96d41c98b9f6a6dc564e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 3892514153522508013, guid: 8be9a24177f4d4297a078276ac8df07a,
+  missilePrefab: {fileID: 4586089830353357242, guid: 136473e06b1ea48f28f618518ac96ef6,
     type: 3}
   firePoint: {fileID: 1099800849}
   missileSpeed: 8
