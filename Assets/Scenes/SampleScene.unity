@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e526cdc02e96d41c98b9f6a6dc564e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 4586089830353357242, guid: 136473e06b1ea48f28f618518ac96ef6,
+  missilePrefab: {fileID: 3892514153522508013, guid: 8be9a24177f4d4297a078276ac8df07a,
     type: 3}
   firePoint: {fileID: 1099800849}
   missileSpeed: 8
