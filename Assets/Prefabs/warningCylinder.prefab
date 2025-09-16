@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warningDelay: 0.8
-  beamPrefab: {fileID: 3288616857402448187, guid: 7a1c8bca0cdd285418a003fc9b89e397,
+  beamPrefab: {fileID: 2065281315330538732, guid: c1a4aedff809047c989f10c862967b8b,
     type: 3}
 --- !u!114 &8727995500877506943
 MonoBehaviour:

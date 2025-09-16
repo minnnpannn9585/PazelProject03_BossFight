@@ -22,7 +22,7 @@ public class BeamWarning : MonoBehaviour
         //    audioSource.PlayOneShot(beamImpactSound);
         //}
         // 生成光束
-        GameObject beam = Instantiate(beamPrefab, position + Vector3.up * 10f, Quaternion.identity);
+        GameObject beam = Instantiate(beamPrefab, position, Quaternion.identity);
         // 检测并伤害范围内的敌人
         DamageEnemiesInArea(position, 1.5f);
     }
