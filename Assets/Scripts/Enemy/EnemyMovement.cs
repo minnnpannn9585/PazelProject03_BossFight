@@ -8,16 +8,22 @@ public class SimpleBossMovement : MonoBehaviour
     public float moveSpeed = 3f;
     public float minWaitTime = 1f;
     public float maxWaitTime = 3f;
+    public float turnSpeed = 5f;
+
 
     private Vector3 centerPoint;
     private Vector3 targetPosition;
     private bool isWaiting = false;
     private float waitTimer = 0f;
+    private Transform player; 
+
 
     void Start()
     {
         centerPoint = transform.position;
         GenerateNewTargetPosition();
+        player = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1);
+
     }
 
     void Update()
@@ -36,6 +42,8 @@ public class SimpleBossMovement : MonoBehaviour
         {
             // 向目标位置移动
             MoveTowardsTarget();
+            TurnTowardsPlayer();
+
         }
     }
 
@@ -76,4 +84,19 @@ public class SimpleBossMovement : MonoBehaviour
             Gizmos.DrawSphere(targetPosition, 0.3f);
         }
     }
+    
+    void TurnTowardsPlayer()
+    {
+        if (player == null) return; // 如果找不到玩家，则不进行转向操作
+        
+        // 获取到玩家的方向
+        Vector3 lookDirection = (player.position - transform.position).normalized;
+        
+        // 创建一个四元数，表示从当前前向方向转向lookDirection所需的旋转
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+        
+        // 平滑地改变旋转
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+    }
+
 }
