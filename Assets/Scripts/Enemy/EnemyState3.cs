@@ -47,6 +47,8 @@ public class EnemyState3 : MonoBehaviour
             if (isSkill03)
             {
                 FireMissile();
+                FireMissile();
+                FireMissile();
                 isSkill03 = false;
             }
             else

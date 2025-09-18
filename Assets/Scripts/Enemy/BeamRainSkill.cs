@@ -73,7 +73,7 @@ public class BeamRainSkill : MonoBehaviour
     {
         for (int i = 0; i < beamCount; i++)
         {
-            print(2);
+            //print(2);
             // 生成随机位置
             Vector3 randomPosition = GetRandomPositionInRadius();
 

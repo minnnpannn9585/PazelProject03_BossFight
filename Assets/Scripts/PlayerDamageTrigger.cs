@@ -19,6 +19,7 @@ public class PlayerDamageTrigger : MonoBehaviour
     {
         if (other.tag == "Laser")
         {
+            print("3333");
             Instantiate(bulletHitVFX, other.transform.position, Quaternion.identity);
             ph.TakeDamage(10);
         }
